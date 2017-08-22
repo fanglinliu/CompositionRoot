@@ -4,59 +4,15 @@ protocol AProtocol {
 
 class A: AProtocol {
     
-    let f: FProtocol
-    let g: GProtocol
-    let h: HProtocol
-    let i: IProtocol
-    let j: JProtocol
-    let k: KProtocol
-    let l: LProtocol
-    let m: MProtocol
-    let n: NProtocol
-    let o: OProtocol
-    let p: PProtocol
-    
-    init(f: FProtocol,
-         g: GProtocol,
-         h: HProtocol,
-         i: IProtocol,
-         j: JProtocol,
-         k: KProtocol,
-         l: LProtocol,
-         m: MProtocol,
-         n: NProtocol,
-         o: OProtocol,
-         p: PProtocol
-        ) {
-        self.f = f
-        self.g = g
-        self.h = h
-        self.i = i
-        self.j = j
-        self.k = k
-        self.l = l
-        self.m = m
-        self.n = n
-        self.o = o
-        self.p = p
+    let applicationContext: ApplicationContext
+    init(applicationContext: ApplicationContext) {
+        self.applicationContext = applicationContext
     }
     
     func aMethod() {
-        let b = B(f: f,
-                  g: g,
-                  h: h,
-                  i: i,
-                  j: j,
-                  k: k,
-                  l: l,
-                  m: m,
-                  n: n,
-                  o: o,
-                  p: p
-        )
-        
+        let b = B(applicationContext: applicationContext)
         b.bMethod()
-        f.fMethod2()
-        g.gMethod2()
+        applicationContext.f.fMethod2()
+        applicationContext.g.gMethod2()
     }
 }
