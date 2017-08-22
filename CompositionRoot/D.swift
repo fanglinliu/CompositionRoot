@@ -3,7 +3,8 @@ protocol DProtocol {
 }
 
 class D: DProtocol {
-    let applicationContext: ApplicationContext
+    private let applicationContext: ApplicationContext
+
     init(applicationContext: ApplicationContext) {
         self.applicationContext = applicationContext
     }

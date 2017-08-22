@@ -1,17 +1,17 @@
-protocol BPrototol {
+protocol BProtocol {
     func bMethod()
 }
 
-class B: BPrototol {
+class B: BProtocol {
     
-    let applicationContext: ApplicationContext
+    private let cFactory: CFactoryProtocol
     
-    init(applicationContext: ApplicationContext) {
-        self.applicationContext = applicationContext
+    init(cFactory: CFactoryProtocol) {
+        self.cFactory = cFactory
     }
     
     func bMethod() {
-        let c = C(applicationContext: applicationContext)
+        let c = cFactory.createC()
         c.cMethod()
     }
 }

@@ -3,14 +3,14 @@ protocol CProtocol {
 }
 
 class C: CProtocol {
-    let applicationContext: ApplicationContext
-    init(applicationContext: ApplicationContext) {
-        self.applicationContext = applicationContext
+    private let dFactory: DFactoryProtocol
+
+    init(dFactory: DFactoryProtocol) {
+        self.dFactory = dFactory
     }
     
-    
     func cMethod() {
-        let d = D((applicationContext: applicationContext))
+        let d = dFactory.createD()
         d.dMethod()
     }
 }

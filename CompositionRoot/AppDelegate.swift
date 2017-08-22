@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Composition Root
-        let a = A(applicationContext: ApplicationContext())
-        
+        let aFactory = AFactory(applicationContext: ApplicationContext())
+        let a = aFactory.createA()
         a.aMethod()
         return true
     }

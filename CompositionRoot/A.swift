@@ -4,15 +4,20 @@ protocol AProtocol {
 
 class A: AProtocol {
     
-    let applicationContext: ApplicationContext
-    init(applicationContext: ApplicationContext) {
-        self.applicationContext = applicationContext
+    private let f: FProtocol
+    private let g: GProtocol
+    private let bFactory: BFactoryProtocol
+
+    init(f: FProtocol, g: GProtocol, bFactory: BFactoryProtocol) {
+        self.f = f
+        self.g = g
+        self.bFactory = bFactory
     }
     
     func aMethod() {
-        let b = B(applicationContext: applicationContext)
+        let b = bFactory.createB()
         b.bMethod()
-        applicationContext.f.fMethod2()
-        applicationContext.g.gMethod2()
+        f.fMethod2()
+        g.gMethod2()
     }
 }
