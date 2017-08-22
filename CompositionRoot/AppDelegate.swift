@@ -13,9 +13,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //Composition Root
+        let a = A(f: F.shared,
+               g: G.shared,
+               h: H.shared,
+               i: I.shared,
+               j: J.shared,
+               k: K.shared,
+               l: L.shared,
+               m: M.shared,
+               n: N.shared,
+               o: O.shared,
+               p: P.shared
+        )
+        
+        a.aMethod()
         return true
     }
 
