@@ -3,16 +3,12 @@ protocol AFactoryProtocol {
 }
 
 class AFactory: AFactoryProtocol {
-    private let applicationContext: ApplicationContext
-    
-    init(applicationContext: ApplicationContext) {
-        self.applicationContext = applicationContext
-    }
-    
+
     func createA() -> AProtocol {
+        let applicationContext = ApplicationContext()
         return A(f: applicationContext.f,
                  g: applicationContext.g,
-                 bFactory: BFactory(applicationContext: applicationContext)
+                 bFactory: BFactory()
         )
     }
     

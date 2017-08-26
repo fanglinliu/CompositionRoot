@@ -3,14 +3,9 @@ protocol DFactoryProtocol {
 }
 
 class DFactory: DFactoryProtocol {
-    private let applicationContext: ApplicationContext
-    
-    init(applicationContext: ApplicationContext) {
-        self.applicationContext = applicationContext
-    }
-    
+
     func createD() -> DProtocol {
-        return D(applicationContext: applicationContext)
+        return D(applicationContext: ApplicationContext())
     }
 
 }
