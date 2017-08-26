@@ -15,19 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Composition Root
-        let a = A(f: F.shared,
-               g: G.shared,
-               h: H.shared,
-               i: I.shared,
-               j: J.shared,
-               k: K.shared,
-               l: L.shared,
-               m: M.shared,
-               n: N.shared,
-               o: O.shared,
-               p: P.shared
-        )
-        
+        let aFactory = AFactory(applicationContext: ApplicationContext())
+        let a = aFactory.createA()
         a.aMethod()
         return true
     }
