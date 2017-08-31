@@ -4,6 +4,7 @@ protocol DProtocol {
 
 class D: DProtocol {
     private let applicationContext: ApplicationContext
+
     init(applicationContext: ApplicationContext) {
         self.applicationContext = applicationContext
     }
